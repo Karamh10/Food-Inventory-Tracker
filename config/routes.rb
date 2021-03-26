@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # The root page, e.g. www.example.com/, is sent here
   # root 'controller#method_in_controller'
   root 'home#index'
+  get "about" => 'home#about'
+  get "dashboard" => 'home#dashboard'
   # Devise authentification pages. This controlls the user login
   # and authentification system.
   devise_for :users
