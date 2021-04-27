@@ -1,0 +1,2 @@
+class AddProduct < ApplicationRecord
+end

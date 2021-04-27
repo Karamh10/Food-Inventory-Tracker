@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Organization: MyString
+  Date: 2021-04-26
+  PO_Number: MyString
+  Invoice_Number: MyString
+  Invoice_Date: 2021-04-26
+  Product: MyString
+  Quantity_Units: MyString
+  Quantity: 1
+  Value: 9.99
+  Weight: 9.99
+
+two:
+  Organization: MyString
+  Date: 2021-04-26
+  PO_Number: MyString
+  Invoice_Number: MyString
+  Invoice_Date: 2021-04-26
+  Product: MyString
+  Quantity_Units: MyString
+  Quantity: 1
+  Value: 9.99
+  Weight: 9.99

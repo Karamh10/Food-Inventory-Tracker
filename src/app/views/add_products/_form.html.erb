@@ -1,0 +1,67 @@
+<%= form_with(model: add_product, local: true) do |form| %>
+  <% if add_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(add_product.errors.count, "error") %> prohibited this add_product from being saved:</h2>
+
+      <ul>
+        <% add_product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Organization %>
+    <%= form.text_field :Organization %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Date %>
+    <%= form.date_select :Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PO_Number %>
+    <%= form.text_field :PO_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Invoice_Number %>
+    <%= form.text_field :Invoice_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Invoice_Date %>
+    <%= form.date_select :Invoice_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Product %>
+    <%= form.text_field :Product %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Quantity_Units %>
+    <%= form.text_field :Quantity_Units %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Quantity %>
+    <%= form.number_field :Quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Value %>
+    <%= form.text_field :Value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Weight %>
+    <%= form.text_field :Weight %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

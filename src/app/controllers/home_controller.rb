@@ -26,4 +26,7 @@ class HomeController < ApplicationController
   def dashboard
   end
   
+  def inventory
+  end
+  
 end

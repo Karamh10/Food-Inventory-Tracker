@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_190602) do
+ActiveRecord::Schema.define(version: 2021_04_27_032710) do
+
+  create_table "add_products", force: :cascade do |t|
+    t.string "Organization"
+    t.date "Date"
+    t.string "PO_Number"
+    t.string "Invoice_Number"
+    t.date "Invoice_Date"
+    t.string "Product"
+    t.string "Quantity_Units"
+    t.integer "Quantity"
+    t.decimal "Value"
+    t.decimal "Weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "app_configs", force: :cascade do |t|
     t.string "name"
