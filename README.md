@@ -1,1 +1,0 @@
-This project is an application that will be designed to help food distribution centers keep track of their inventory, recipients, and have the ability to check other centers’ inventory in order to redirect some of their recipients to that location in case they were low on inventory, in order to not cut those in need off from any food resources.
