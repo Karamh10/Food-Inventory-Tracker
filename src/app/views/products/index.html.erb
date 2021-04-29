@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Organization</th>
+      <th>Date</th>
+      <th>Po number</th>
+      <th>Invoice number</th>
+      <th>Invoice date</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Weight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%#= form_for @products, :html => { :class => 'form-horizontal' } do |f| %>
+
+      <%#= f.association :user, :label => "Name", :input_html => { :value => @user.id} %>
+
+    <%# end %>
+    <% @products.each do |product| %>
+      <% if product.user == current_user #&& current_user == @user %>
+        <tr> 
+          <td><%= product.Organization %></td>
+          <td><%= product.Date %></td>
+          <td><%= product.PO_Number %></td>
+          <td><%= product.Invoice_Number %></td>
+          <td><%= product.Invoice_Date %></td>
+          <td><%= product.Product %></td>
+          <td><%= product.Quantity %></td>
+          <td><%= product.Value %></td>
+          <td><%= product.Weight %></td>
+          <td><%= link_to 'Show', product, class:"btn btn-light" %></td>
+          <td><%= link_to 'Edit', edit_product_path(product), class:"btn btn-light" %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'New Product', new_product_path, class:"btn btn-light" %>

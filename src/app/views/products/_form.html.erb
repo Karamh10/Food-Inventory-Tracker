@@ -1,0 +1,77 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :Organization, class: "form-control",
+    placeholder: "Organization" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Date %>
+    <%= form.date_select :Date, class: "form-control",
+    placeholder: "Date" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :PO_Number, class: "form-control",
+    placeholder: "PO_Number" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :Invoice_Number, class: "form-control",
+    placeholder: "Invoice_number" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Invoice_Date %>
+    <%= form.date_select :Invoice_Date, class: "form-control",
+    placeholder: "Invoice_Date" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :Product, class: "form-control",
+    placeholder: "Product" %>
+  </div>
+
+ 
+
+  <div class="field form-group">
+    <%= form.number_field :Quantity, class: "form-control",
+    placeholder: "Quantity" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :Value, class: "form-control",
+    placeholder: "Value($)" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :Weight, class: "form-control",
+    placeholder: "Weight (lb)" %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, 
+    id: :friend_user_id,
+    value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="field">
+      <%#= form.label :approved, type: :hidden %>
+      <%= form.check_box :approved, value: :false, type: :hidden %>
+  </div>
+<div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-secondary' %>
+  </div></div>
+<% end %>
