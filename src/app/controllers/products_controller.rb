@@ -6,25 +6,22 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    #@user = User.find(params[:user_id])
+    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     
   end
 
   def home
     @products = Product.all
-    #@user = User.find(params[:user_id])
   end
   # GET /products/1
   # GET /products/1.json
   def show
     @products = Product.all
     @num 
-    #@user = User.find(params[:user_id])
   end 
 
   # GET /products/new
   def new
-    #@product = Product.new
     @product = current_user.products.build
   end
 

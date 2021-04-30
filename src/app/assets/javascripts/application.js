@@ -3,7 +3,6 @@
 //= require jquery
 //= require jquery_ujs
 // Hide top bar when scrolling down and show it again when scrolling up
-
 $(function () {
   var lastScrollTop = 0;
   var $navbar = $('.navbar');

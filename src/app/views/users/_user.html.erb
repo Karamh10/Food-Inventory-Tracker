@@ -1,4 +1,4 @@
 <li>
-    <%#= link_to user.email, user %>
+    <%#the following link passes the user_id to the controller of products and call the index function of that controller %>
     <%= link_to user.email,{ :controller => "products", :action => "index", :user_id => user.id} , {:class => 'btn btn-mini'} %>
 </li>

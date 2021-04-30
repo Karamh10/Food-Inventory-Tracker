@@ -10,53 +10,51 @@
       </ul>
     </div>
   <% end %>
-
+  <link rel="stylesheet" href="./assets/stylesheets/products.scss">
   <div class="field form-group">
-    <%= form.text_field :Organization, class: "form-control",
-    placeholder: "Organization" %>
+    <%= form.text_field :Organization, class: "form-ctrl",
+    placeholder: "Organization", :required => true %>
   </div>
 
   <div class="field form-group">
     <%= form.label :Date %>
-    <%= form.date_select :Date, class: "form-control",
-    placeholder: "Date" %>
+    <%= form.date_select :Date, class: "form-ctrl",
+    placeholder: "Date", :required => true %>
   </div>
 
   <div class="field form-group">
-    <%= form.text_field :PO_Number, class: "form-control",
+    <%= form.text_field :PO_Number, class: "form-ctrl",
     placeholder: "PO_Number" %>
   </div>
 
   <div class="field form-group">
-    <%= form.text_field :Invoice_Number, class: "form-control",
+    <%= form.text_field :Invoice_Number, class: "form-ctrl",
     placeholder: "Invoice_number" %>
   </div>
 
   <div class="field form-group">
     <%= form.label :Invoice_Date %>
-    <%= form.date_select :Invoice_Date, class: "form-control",
+    <%= form.date_select :Invoice_Date, class: "form-ctrl",
     placeholder: "Invoice_Date" %>
   </div>
 
   <div class="field form-group">
-    <%= form.text_field :Product, class: "form-control",
-    placeholder: "Product" %>
-  </div>
-
- 
-
-  <div class="field form-group">
-    <%= form.number_field :Quantity, class: "form-control",
-    placeholder: "Quantity" %>
+    <%= form.text_field :Product, class: "form-ctrl",
+    placeholder: "Product", :required => true%>
   </div>
 
   <div class="field form-group">
-    <%= form.text_field :Value, class: "form-control",
-    placeholder: "Value($)" %>
+    <%= form.number_field :Quantity, class: "form-ctrl",
+    placeholder: "Quantity", :required => true %>
   </div>
 
   <div class="field form-group">
-    <%= form.text_field :Weight, class: "form-control",
+    <%= form.text_field :Value, class: "form-ctrl",
+    placeholder: "Value($)", :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :Weight, class: "form-ctrl",
     placeholder: "Weight (lb)" %>
   </div>
 
@@ -66,12 +64,14 @@
     value: current_user.id, type: :hidden %>
   </div>
 
+  <%#the approved field will be used in future implementation where the user can't access 
+     other food pantries' invenotry unless they approve their request%>
   <div class="field">
-      <%#= form.label :approved, type: :hidden %>
-      <%= form.check_box :approved, value: :false, type: :hidden %>
+      <%= form.label :approved, :hidden => true %>
+      <%= form.check_box :approved, value: false, :hidden => true%>
   </div>
 <div>
   <div class="actions">
-    <%= form.submit class: 'btn btn-secondary' %>
+    <%= form.submit class: 'btn btn-primary btn-form-control' %>
   </div></div>
 <% end %>

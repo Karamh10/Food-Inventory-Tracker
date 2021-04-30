@@ -12,8 +12,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :products
-  def full_name
-    #"#{first_name} #{last_name}"
-    "Karam Hallak"
-  end
 end

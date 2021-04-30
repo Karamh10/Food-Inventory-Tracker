@@ -12,6 +12,7 @@
   <%= javascript_include_tag 'application' %>
   <%# Bootstrap css %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/stylesheets/application.scss">
 </head>
   <body>
     <%# Bootstrap js & dependencies %>
@@ -27,7 +28,7 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <button onclick="goBack()" class = 'btn btn-primary'>Go Back</button>
+          <button onclick="goBack()" class = "btn btn-link-light btn-sm">Go Back</button>
           <%= nav_link "Home", root_path %>
           <%= nav_link "About", "/about" %>
           <% if user_signed_in? %>
@@ -35,6 +36,7 @@
           <% end %>
         </ul>
         <script>
+        //function to go back to previous page
         function goBack() {
           window.history.back();
         }
@@ -60,7 +62,7 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= button_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= button_to "Login", new_user_session_path, class: "btn btn-outline-primary login-button" %>
             </li>
           <% end %>
         </ul>
