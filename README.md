@@ -5,7 +5,7 @@
   This program was originally designed to help food pantries and distribution centers to track their inventory.
   The main functionality of the program was that the user will be able to view other food pantries inventory
   just in case they are low on inventory themselves. That way they would see if the other pantry has enough 
-  to distribute to some reciepient the it would send a request and if accepted, the recipients will be transformed over.
+  to distribute to some reciepients. Then would send a request and if accepted, the recipients will be transformed over.
   
 * How it works:
 
