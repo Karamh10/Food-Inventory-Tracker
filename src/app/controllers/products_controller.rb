@@ -5,9 +5,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = params[:search] ? Product.search(params[:search]) : Product.all
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    
   end
 
   def home
