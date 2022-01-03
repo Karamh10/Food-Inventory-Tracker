@@ -12,6 +12,7 @@
   <%= javascript_include_tag 'application' %>
   <%# Bootstrap css %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/stylesheets/application.scss">
 </head>
   <body>
     <%# Bootstrap js & dependencies %>
@@ -27,12 +28,19 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+          <button onclick="goBack()" class = "btn btn-link-light btn-sm">Go Back</button>
           <%= nav_link "Home", root_path %>
           <%= nav_link "About", "/about" %>
           <% if user_signed_in? %>
-            <%= nav_link "Inventory", "/about" %>
+            <%= nav_link "Inventory", "/inventory" %>
           <% end %>
         </ul>
+        <script>
+        //function to go back to previous page
+        function goBack() {
+          window.history.back();
+        }
+      </script>
         <ul class="navbar-nav">
           <%# If user, show account, else sign in %>
           <% if user_signed_in? %>
@@ -45,10 +53,8 @@
               <%# Make sure to include the css class as shown in the login example %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%# The rails administration panel link %>
-               <% if Rails.env.development? %><% end %>
-                <%= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+               <% if Rails.env.development? %><%= link_to 'Rails Admin', rails_admin_path, class: "dropdown-item" %><% end %>
+                <%#= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%# Devise requires that the logout command be sent using the 'delete' HTTP verb (method) %>
                 <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
@@ -56,7 +62,7 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= button_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= button_to "Login", new_user_session_path, class: "btn btn-outline-primary login-button" %>
             </li>
           <% end %>
         </ul>

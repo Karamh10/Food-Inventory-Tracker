@@ -1,6 +1,8 @@
 // Main javascript file
 // served for all pages
-
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
 // Hide top bar when scrolling down and show it again when scrolling up
 $(function () {
   var lastScrollTop = 0;

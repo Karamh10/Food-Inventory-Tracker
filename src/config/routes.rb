@@ -7,15 +7,25 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
+  get 'users/index'
+  resources :products
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # The root page, e.g. www.example.com/, is sent here
   # root 'controller#method_in_controller'
   root 'home#index'
   get "about" => 'home#about'
   get "dashboard" => 'home#dashboard'
+  get "inventory" => 'home#inventory'
+  match '/users',   to: 'users#index',   via: 'get'
+  match '/users/:id',     to: 'users#show',       via: 'get'
+  match '/products',   to: 'products#home',   via: 'get'
   # Devise authentification pages. This controlls the user login
   # and authentification system.
-  devise_for :users
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only =>[:show, :index] do
+    resources :products
+  end
+  #devise_for :users
 
   # Examples:
   #
