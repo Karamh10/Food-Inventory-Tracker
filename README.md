@@ -23,7 +23,11 @@
   
   
  ## What you need:
- - Install Ruby and Rails and PostgreSQL.
+ - Install Ruby and Rails and PostgreSQL:
+ ```
+ Ruby version 2.7.2
+ Rails version 6.0.2
+ ```
  - Clone the repository and change your current working directory to the newly created directory
  - Install the project dependencies:
 ```
@@ -39,3 +43,29 @@ $ rails db:setup
 $ rails server
 ```
  - Modify code and refresh web pages to see the difference.
+
+###Installation problems:
+ - I have encountered problems when installing and running this web app recently and what fixed it for me was downgrading node to version 14:
+ - To downgrade nod eusing nvm run:
+ ```
+ nvm install 14
+ ```
+ - To set version 14 globaly, run:
+ ```
+ nvm alias default 14
+ ```
+ To follow that, as per https://stackoverflow.com/questions/67241196/error-no-template-named-remove-cv-t-in-namespace-std-did-you-mean-remove/67242989#67242989 :
+
+- Open terminal and head to your app's root directory, then:
+
+- Stop your rails server if it's running
+- Open a fresh new terminal window (so that node --version returns 14.x (not 16)
+- Run ``` spring stop ```
+- Delete yarn.lock
+- Remove existing node modules with ``` rm -rf node_modules ```
+- Check that ``` node --version ``` returns 14. If it doesn't run ``` nvm install 14 ``` again.
+Now reinstall modules with ```yarn install``` (if you don't have yarn for node 14, install it with ```npm install --global yarn```)
+- It should succeed!
+- Restart your rails server, and it will work!
+
+Make sure no files were deleted.. to make sure that didn't happen, copy all and only the folders from the ```src``` folder and then paste them in the ```src``` folder on your local machine. Replace all the files that have the same name. Rerun the server!
